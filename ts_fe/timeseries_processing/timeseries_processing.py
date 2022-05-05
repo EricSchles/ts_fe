@@ -34,4 +34,13 @@ def timeseries_train_test_split(X, y, position=0.5):
         X_train, X_test,
         y_train, y_test
     )
-    
+
+def lstm_dataprep(X_train, X_test):
+    X_train = X_train.values.reshape(
+        (X_train.shape[0], 1, X_train.shape[1])
+    )
+    X_test = X_test.values.reshape(
+        (X_test.shape[0], 1, X_test.shape[1])
+    )
+    return X_train, X_test
+
